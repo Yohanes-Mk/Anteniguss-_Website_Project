@@ -1,0 +1,175 @@
+/* 🌟 General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'SovMod', sans-serif;
+    color: white;
+    background-color: black;
+    overflow-x: hidden;
+}
+@font-face {
+    font-family: 'SovMod';
+    src: url('assets/fonts/SovMod.otf') format('opentype'), 
+         url('assets/fonts/SovMod.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 🌟 Parallax Hero Section */
+#hero {
+    height: 150vh; /* 3 scrolls long */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Image - Parallax Effect */
+#hero-bg {
+    position: fixed; /* Stays in place as user scrolls */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Covers full viewport */
+    background-image: url('assets/images/dark\ shelf\ and\ sofa.jpg'); /* Ensure correct path */
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.8);
+    transition: opacity 1s ease-in-out;
+    z-index: -1;
+}
+
+/* 🌟 Hero Text */
+#hero-title {
+    font-family: 'SovMod', sans-serif;
+    font-size: 12rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: transform 0.5s ease-in-out, font-size 0.5s ease-in-out;
+}
+
+/* 🌟 Subtitle */
+#hero-subtitle {
+    font-size: 1.5rem;
+    opacity: 1;
+    transition: opacity 0.8s ease-in-out;
+}
+
+/* 🌟 Navbar */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent */
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    transition: background 0.5s ease-in-out;
+}
+
+/* Navbar Logo */
+#navbar-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-10px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    color: white;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8); /* Glow effect */
+}
+
+/* 🌟 Navbar Links */
+nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #ddd;
+}
+
+/* 🌟 Parallax Scroll Effect (CSS-Only) */
+@media (prefers-reduced-motion: no-preference) {
+    /* As user scrolls, text moves up & shrinks */
+    body:has(header:sticky) #hero-title {
+        font-size: 2rem;
+        transform: translateY(-80px);
+    }
+
+    /* Navbar logo fades in when scrolling */
+    body:has(header:sticky) #navbar-logo {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Background image fades as you scroll */
+    body:has(header:sticky) #hero-bg {
+        opacity: 0;
+    }
+}
+#beauty-usefully {
+    display: flex;
+    width: 100%;
+    height: 100vh; /* Full screen height */
+}
+
+.beauty-text, .usefully-text {
+    font-size: 6rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%; /* Each text takes half the screen */
+    height: 100%;
+    transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+/* Left Side - Black Background, White Text */
+.beauty-text {
+    background-color: rgba(36, 22, 4, 0.4);
+    color: white;
+}
+
+/* Right Side - White Background, Black Text */
+.usefully-text {
+    background-color: rgba(204, 177, 150, 0.4);
+    color: black;
+}
+
+/* 🌟 Footer */
+footer {
+    background: #111;
+    padding: 2rem;
+    text-align: center;
+    color: gray;
+}
